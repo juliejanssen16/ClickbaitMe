@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClickbaitMe.nl — the webgame</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">C</div>
+        <div>
+          <h1>ClickbaitMe<span class="dot">.nl</span></h1>
+          <p class="subtitle">You clicked it. That’s on you. 😈</p>
+        </div>
+      </div>
+
+      <div class="hud" role="status" aria-live="polite">
+        <div class="pill"><span>Level</span><strong id="level">1</strong></div>
+        <div class="pill"><span>Score</span><strong id="score">0</strong></div>
+        <div class="pill"><span>Streak</span><strong id="streak">0</strong></div>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="row">
+        <div class="instruction">
+          <div class="label">Instruction</div>
+          <div id="instructionText" class="instructionText">Klik de GROOTSTE knop.</div>
+        </div>
+
+        <div class="controls">
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="resetBtn" class="btn ghost" disabled>Reset</button>
+        </div>
+      </div>
+
+      <div class="arena" id="arena" aria-label="Game buttons area"></div>
+
+      <div class="message" id="message" aria-live="polite"></div>
+    </section>
+
+    <footer class="footer">
+      <span>Made by </span>
+      <a class="credit" href="https://jourhelp.nl" target="_blank" rel="noopener noreferrer">JourHelp</a>
+      <span> • </span>
+      <button id="toggleMode" class="linklike" type="button">Toggle chaos mode</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

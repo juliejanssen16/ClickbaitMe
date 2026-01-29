@@ -1,0 +1,275 @@
+:root{
+  --bg: #120014;
+  --card: rgba(255, 255, 255, .08);
+  --card2: rgba(255, 255, 255, .12);
+  --text: rgba(255,255,255,.94);
+  --muted: rgba(255,255,255,.70);
+
+  --pink: #ff4fd8;
+  --hotpink: #ff2bbf;
+  --softpink: rgba(255, 79, 216, .18);
+  --softpink2: rgba(255, 79, 216, .28);
+
+  --shadow: 0 24px 70px rgba(0,0,0,.55);
+  --radius: 22px;
+  --ring: 0 0 0 3px rgba(255, 79, 216, .25);
+  --ring2: 0 0 0 4px rgba(255, 79, 216, .30);
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body{
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+
+  background:
+    radial-gradient(1200px 800px at 15% 10%, rgba(255,79,216,.20), transparent 60%),
+    radial-gradient(900px 600px at 90% 25%, rgba(255,43,191,.18), transparent 55%),
+    radial-gradient(700px 520px at 55% 95%, rgba(255,255,255,.06), transparent 60%),
+    var(--bg);
+
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bg-noise{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+
+.wrap{
+  width: min(980px, 92vw);
+  margin: 22px auto 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.top{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo{
+  width: 54px; height: 54px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(135deg, rgba(255,79,216,.22), rgba(255,255,255,.08));
+  border: 1px solid rgba(255,79,216,.30);
+  box-shadow: var(--shadow);
+
+  font-weight: 900;
+  letter-spacing: .02em;
+  transform: rotate(-6deg);
+}
+
+h1{
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.dot{ opacity: .75; }
+.subtitle{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.hud{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pill{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,79,216,.22);
+  border-radius: 999px;
+  padding: 10px 12px;
+  min-width: 110px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+}
+.pill span{ color: var(--muted); font-size: 12px; }
+.pill strong{ font-size: 18px; letter-spacing: .01em; }
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,79,216,.22);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.row{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.instruction .label{
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 6px;
+}
+
+.instructionText{
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,79,216,.10);
+  border: 1px dashed rgba(255,79,216,.35);
+}
+
+.controls{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn{
+  border: 1px solid rgba(255,79,216,.28);
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 750;
+  transition: transform .08s ease, background .15s ease, border-color .15s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:hover{ background: rgba(255,255,255,.12); }
+.btn:active{ transform: translateY(1px) scale(.99); }
+.btn:focus-visible{ outline: none; box-shadow: var(--ring); }
+
+.btn.primary{
+  background: linear-gradient(135deg, rgba(255,79,216,.25), rgba(255,255,255,.10));
+  border-color: rgba(255,79,216,.40);
+}
+.btn.primary:hover{ background: rgba(255,79,216,.20); }
+.btn.ghost{ opacity: .95; }
+
+.btn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.arena{
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 18px;
+  background:
+    radial-gradient(900px 500px at 50% 0%, rgba(255,79,216,.16), transparent 55%),
+    rgba(0,0,0,.18);
+  border: 1px solid rgba(255,79,216,.20);
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.gameBtn{
+  position: absolute;
+  border-radius: 18px;
+  border: 1px solid rgba(255,79,216,.25);
+  background: rgba(255,255,255,.10);
+  color: var(--text);
+  font-weight: 850;
+  letter-spacing: .01em;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  transition: transform .09s ease, filter .15s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.gameBtn:hover{ filter: brightness(1.15); }
+.gameBtn:active{ transform: scale(.98); }
+.gameBtn:focus-visible{ outline: none; box-shadow: var(--ring2); }
+
+.message{
+  margin-top: 12px;
+  min-height: 26px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.footer{
+  color: var(--muted);
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4px 0 0;
+}
+
+.credit{
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,79,216,.55);
+}
+.credit:hover{ border-bottom-color: rgba(255,79,216,.95); }
+
+.linklike{
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+  border-bottom: 1px dotted rgba(255,79,216,.55);
+}
+.linklike:hover{ border-bottom-color: rgba(255,79,216,.95); }
+
+@media (max-width: 640px){
+  .wrap{ margin: 16px auto 18px; }
+  h1{ font-size: 30px; }
+  .pill{ min-width: 98px; padding: 9px 11px; }
+  .instructionText{ font-size: 18px; }
+
+  .controls{
+    width: 100%;
+    justify-content: stretch;
+  }
+  .controls .btn{
+    flex: 1;
+    padding: 14px 14px;
+    border-radius: 16px;
+  }
+
+  .arena{
+    min-height: 460px;
+  }
+}
